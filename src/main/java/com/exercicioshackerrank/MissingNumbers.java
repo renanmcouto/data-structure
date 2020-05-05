@@ -1,50 +1,88 @@
 package com.exercicioshackerrank;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class MissingNumbers {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int jj=0;
-        ArrayList<Integer> numerosFaltando = new ArrayList();
+        Random random = new Random();
+        List lista = new ArrayList<Integer>();
+        int jj = 0;
 
-        int valorPrimeiroArray = scanner.nextInt();
-        int[] arr = new int[valorPrimeiroArray];
+        Integer tamanhoA = scanner.nextInt();
+        Integer[] arrayA = new Integer[tamanhoA];
 
-
-        for (int i = 0; i < valorPrimeiroArray; i++) {
-            arr[i] = scanner.nextInt();
+        for (int i = 0; i < tamanhoA; i++) {
+            arrayA[i] = scanner.nextInt();
         }
 
-        int valorSegundoArray = scanner.nextInt();
-        int[] brr = new int[valorSegundoArray];
+        Integer tamanhoB = scanner.nextInt();
+        Integer[] arrayB = new Integer[tamanhoB];
 
-        for (int i = 0; i < valorSegundoArray; i++) {
-            brr[i] = scanner.nextInt();
+        for (int i = 0; i < tamanhoB; i++) {
+            arrayB[i] = scanner.nextInt();
         }
 
-        scanner.close();
+        //Mostra os valores do Vetor A
+        for (int i = 0; i < arrayA.length; i++) {
+            if (i < arrayA.length - 1) {
+                System.out.print(arrayA[i] + ", ");
+            } else {
+                System.out.println(arrayA[i]);
+            }
+        }
 
-        //Faz a inserção dentro da lista.
-        for (int i = 0; i < arr.length; i++) {
-            for(int j = jj; j < brr.length; j++){
-                    if(brr[j] == arr[i]){
-                        jj++;
-                        break;
-                }else{
-                        numerosFaltando.add(brr[j]);
-                        jj++;
-                    }
+        //Mostra os valores do Vetor B
+        for (int i = 0; i < arrayB.length; i++) {
+            if (i < arrayB.length - 1) {
+                System.out.print(arrayB[i] + ", ");
+            } else {
+                System.out.println(arrayB[i]);
+            }
+        }
+
+        //ordenação dos arrays
+        //Collections.sort();
+
+        System.out.println("Ordenados");
+
+        for (int i = 0; i < arrayA.length; i++) {
+            if (i < arrayA.length - 1) {
+                System.out.print(arrayA[i] + ", ");
+            } else {
+                System.out.println(arrayA[i]);
+            }
+        }
+
+        //Mostra os valores do Vetor B
+        for (int i = 0; i < arrayB.length; i++) {
+            if (i < arrayB.length - 1) {
+                System.out.print(arrayB[i] + ", ");
+            } else {
+                System.out.println(arrayB[i]);
+            }
+        }
+
+
+        //faz a inserção dos itens diferentes na outra lista
+        for (int i = 0; i < arrayA.length; i++) {
+            for (int j = jj; j < arrayB.length; j++) {
+                if (arrayA[i].equals(arrayB[j])) {
+                    jj++;
+                    break;
+                }
+                lista.add(arrayB[j]);
+                jj++;
             }
         }
 
         //Remove duplicações dentro da lista.
-        for(int i=0; i<numerosFaltando.size(); i++){
-            for(int j=1; j<numerosFaltando.size(); j++){
-                if(numerosFaltando.get(i).equals(numerosFaltando.get(j))){
-                    numerosFaltando.remove(i);
+        for(int i=0; i<lista.size(); i++){
+            for(int j=i+1; j<lista.size(); j++){
+                if(lista.get(i).equals(lista.get(j))){
+                    lista.remove(i);
                     break;
                 }else {
                     break;
@@ -52,21 +90,9 @@ public class MissingNumbers {
             }
         }
 
-        //Organiza a Lista por ordem.
-        for(int i=0; i<numerosFaltando.size()-1; i++){
-            if(!(numerosFaltando.get(i) < numerosFaltando.get(i+1))){
-                int aux = numerosFaltando.get(i);
-                numerosFaltando.remove(i);
-                numerosFaltando.add(aux);
-            }
-        }
-        //Printa o Resultado
-        for(int i=0; i<numerosFaltando.size(); i++){
-            if(i < numerosFaltando.size()-1) {
-                System.out.print(numerosFaltando.get(i) + " ");
-            }else{
-                System.out.print(numerosFaltando.get(i));
-            }
+        //Mostra os valores do Vetor B
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.print(lista.get(i)+" ");
         }
     }
 }

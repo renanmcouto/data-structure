@@ -28,6 +28,8 @@ public class MainTest {
 
         System.out.println("Lista com o método reverse: "+lista.toString());
 
+        lista.bubbleSort();
 
+        System.out.println("Lista com o método bubblesort: "+lista.toString());
     }
 }
