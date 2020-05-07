@@ -17,11 +17,29 @@ public class Lista {
         }
     }
 
-    public void add(Integer elemento) {
+    public Lista (){
+        this.arr = new Integer[1];
+        this.apontaParaUltimaPosicao = 0;
+    }
+
+    public void add(Integer elemento) throws Throwable {
         if (this.apontaParaUltimaPosicao < this.arr.length) {
             this.arr[apontaParaUltimaPosicao] = elemento;
+            apontaParaUltimaPosicao++;
+        }else{
+          throw new Throwable("NÂO TEM MAIS ESPAÇO");
         }
-        apontaParaUltimaPosicao++;
+    }
+
+    /**
+     * Feito para facilidar a troca de itens dentro do array.
+     * @param posicaoUm responsavel por receber o valor da posicaoDois
+     * @param posicaoDois responsavel por receber o valor da posicaoUm
+     */
+    public void switchObject(Integer posicaoUm,Integer posicaoDois){
+            Integer aux = this.arr[posicaoUm];
+            this.arr[posicaoUm] = this.arr[posicaoDois];
+            this.arr[posicaoDois] = aux;
     }
 
     public void remove(Integer posicao) {
