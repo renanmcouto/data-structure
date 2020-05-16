@@ -1,7 +1,8 @@
 package com.estruturadedados.arraylist;
 
+import com.estruturadedados.lista.Lista;
+import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.testng.annotations.Test;
 
 public class ListaTest {
 

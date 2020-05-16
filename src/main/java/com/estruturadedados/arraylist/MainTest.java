@@ -1,5 +1,7 @@
 package com.estruturadedados.arraylist;
 
+import com.estruturadedados.lista.Lista;
+
 public class MainTest {
     public static void main(String[] args) throws Throwable {
         Lista lista = new Lista(4);

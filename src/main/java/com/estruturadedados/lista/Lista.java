@@ -1,8 +1,8 @@
-package com.estruturadedados.arraylist;
+package com.estruturadedados.lista;
 
 import java.util.ArrayList;
 
-public class Lista {
+public class Lista implements ListaDoMarin<Integer> {
 
     private Integer[] arr; //Instancia de um array
     private Integer apontaParaUltimaPosicao;
@@ -22,6 +22,7 @@ public class Lista {
         this.apontaParaUltimaPosicao = 0;
     }
 
+    @Override
     public void add(Integer elemento) throws Throwable {
         if (this.apontaParaUltimaPosicao < this.arr.length) {
             this.arr[apontaParaUltimaPosicao] = elemento;
@@ -42,6 +43,7 @@ public class Lista {
             this.arr[posicaoDois] = aux;
     }
 
+    @Override
     public void remove(Integer posicao) {
         if (posicao < apontaParaUltimaPosicao && posicao >= 0) {
             for (int i = posicao; i < this.arr.length - 1; i++) {
@@ -51,6 +53,7 @@ public class Lista {
         this.apontaParaUltimaPosicao--;
     }
 
+    @Override
     public int findByIndex(Integer position) {
         if (position >= 0 && position <= apontaParaUltimaPosicao) {
             return this.arr[position];
@@ -58,6 +61,7 @@ public class Lista {
         return -1;
     }
 
+    @Override
     public void update(Integer value, Integer index) {
         if (index >= 0 && index < this.arr.length) {
             this.arr[index] = value;
@@ -66,6 +70,7 @@ public class Lista {
         }
     }
 
+    @Override
     public void reverse() {
         for (int i = 1; i < this.size() - 1; i++) {
             aux = this.arr[i-1];
@@ -86,6 +91,7 @@ public class Lista {
         }
     }
 
+    @Override
     public int size() {
         return this.apontaParaUltimaPosicao;
     }
