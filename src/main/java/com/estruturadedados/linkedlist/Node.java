@@ -4,15 +4,15 @@ import com.entitys.Pessoa;
 
 public class Node {
     private Node proximo;
-    private Pessoa p;
+    private Pessoa elemento;
 
     public Node(Node proximo,Pessoa pessoa){
         this.proximo = proximo;
-        this.p = pessoa;
+        this.elemento = pessoa;
     }
 
     public Node(Pessoa pessoa){
-        this.p = pessoa;
+        this.elemento = pessoa;
     }
 
     public Node getProximo() {
@@ -24,6 +24,6 @@ public class Node {
     }
 
     public Pessoa getP() {
-        return p;
+        return elemento;
     }
 }

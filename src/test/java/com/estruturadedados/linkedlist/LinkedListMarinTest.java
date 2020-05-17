@@ -12,7 +12,7 @@ class LinkedListMarinTest {
     @Test
     public void TesteCriacaoListaLigada(){
         LinkedList listaLigada = new LinkedList();
-        assertEquals(true,listaLigada.isEmpity());
+        assertEquals(0,listaLigada.size());
     }
 
     @Test
