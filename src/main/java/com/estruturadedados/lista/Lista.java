@@ -45,7 +45,7 @@ public class Lista implements ListaDoMarin<Integer> {
 
     @Override
     public void remove(Integer posicao) {
-        if (posicao < apontaParaUltimaPosicao && posicao >= 0) {
+        if (posicao < this.apontaParaUltimaPosicao && posicao >= 0) {
             for (int i = posicao; i < this.arr.length - 1; i++) {
                 this.arr[i] = this.arr[i + 1];
             }
@@ -54,8 +54,8 @@ public class Lista implements ListaDoMarin<Integer> {
     }
 
     @Override
-    public int findByIndex(Integer position) {
-        if (position >= 0 && position <= apontaParaUltimaPosicao) {
+    public Integer findByIndex(Integer position) {
+        if (position >= 0 && position <= this.apontaParaUltimaPosicao) {
             return this.arr[position];
         }
         return -1;

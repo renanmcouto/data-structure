@@ -6,7 +6,7 @@ public interface ListaDoMarin<T> {
 
     public void remove(T posicao);
 
-    public int findByIndex(T position);
+    public T findByIndex(Integer position);
 
     public void update(T value, T index);
 

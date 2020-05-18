@@ -3,12 +3,13 @@ package com.estruturadedados.linkedlist;
 import com.entitys.Pessoa;
 
 public class Node {
+
     private Node proximo;
     private Pessoa elemento;
 
-    public Node(Node proximo,Pessoa pessoa){
+    public Node(Node proximo,Pessoa elemento){
         this.proximo = proximo;
-        this.elemento = pessoa;
+        this.elemento = elemento;
     }
 
     public Node(Pessoa pessoa){
@@ -23,7 +24,7 @@ public class Node {
         this.proximo = proximo;
     }
 
-    public Pessoa getP() {
+    public Pessoa getElemento() {
         return elemento;
     }
 }
