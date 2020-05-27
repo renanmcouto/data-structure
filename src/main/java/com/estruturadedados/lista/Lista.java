@@ -17,8 +17,8 @@ public class Lista implements ListaDoMarin<Integer> {
         }
     }
 
-    public Lista (){
-        this.arr = new Integer[1];
+    public Lista() {
+        this.arr = new Integer[10];
         this.apontaParaUltimaPosicao = 0;
     }
 
@@ -26,21 +26,22 @@ public class Lista implements ListaDoMarin<Integer> {
     public void add(Integer elemento) throws Throwable {
         if (this.apontaParaUltimaPosicao < this.arr.length) {
             this.arr[apontaParaUltimaPosicao] = elemento;
-            apontaParaUltimaPosicao++;
-        }else{
-          throw new Throwable("NÂO TEM MAIS ESPAÇO");
+            this.apontaParaUltimaPosicao++;
+        } else {
+            throw new Throwable("NÂO TEM MAIS ESPAÇO");
         }
     }
 
     /**
      * Feito para facilidar a troca de itens dentro do array.
-     * @param posicaoUm responsavel por receber o valor da posicaoDois
+     *
+     * @param posicaoUm   responsavel por receber o valor da posicaoDois
      * @param posicaoDois responsavel por receber o valor da posicaoUm
      */
-    public void switchObject(Integer posicaoUm,Integer posicaoDois){
-            Integer aux = this.arr[posicaoUm];
-            this.arr[posicaoUm] = this.arr[posicaoDois];
-            this.arr[posicaoDois] = aux;
+    public void switchObject(Integer posicaoUm, Integer posicaoDois) {
+        Integer aux = this.arr[posicaoUm];
+        this.arr[posicaoUm] = this.arr[posicaoDois];
+        this.arr[posicaoDois] = aux;
     }
 
     @Override
@@ -72,18 +73,23 @@ public class Lista implements ListaDoMarin<Integer> {
 
     @Override
     public void reverse() {
-        for (int i = 1; i < this.size() - 1; i++) {
-            aux = this.arr[i-1];
-            this.arr[i-1] = this.arr[this.size() - i];
-            this.arr[this.size() - i] = aux;
+        int jj=0;
+        Integer[] arrReverse = new Integer[this.arr.length];
+        for (int i = this.arr.length-1 ; i>=0; i--) {
+            for (int j = jj; j < this.arr.length; j++) {
+                arrReverse[j] = this.arr[i];
+                jj++;
+                break;
+            }
         }
+        this.arr = arrReverse;
     }
 
-    public void bubbleSort(){
+    public void bubbleSort() {
         for (int i = 0; i < this.arr.length - 1; i++) {
             for (int j = 0; j < this.arr.length - 1; j++) {
-                if (this.arr[j] > this.arr[j + 1]) {
-                    int aux = this.arr[j];
+                if (this.arr[j] > this.arr[j + 1]) { //valida se a posição J é J+1 se for maior exemplo {4(j) 3(J+1) 5 1} > {3451} > {3 4(J) 5(J+1) 1}
+                    aux = this.arr[j];
                     this.arr[j] = this.arr[j + 1];
                     this.arr[j + 1] = aux;
                 }

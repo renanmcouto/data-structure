@@ -33,7 +33,7 @@ public class ListaTest {
         lista.add(1);
         lista.add(2);
         lista.add(3);
-        Assertions.assertEquals(2,2);
+        Assertions.assertEquals(3,lista.size());
     }
 
     /**
@@ -46,8 +46,8 @@ public class ListaTest {
         Lista lista = new Lista(2);
         lista.add(99);
         lista.add(25);
-        Assertions.assertEquals(99,lista.findByIndex(0));
-        Assertions.assertEquals(25,lista.findByIndex(1));
+        Assertions.assertSame(99,lista.findByIndex(0));
+        Assertions.assertSame( 25,lista.findByIndex(1));
     }
 
     /**
@@ -61,8 +61,8 @@ public class ListaTest {
         lista.add(50);
         lista.add(100);
         lista.switchObject(0,1);
-        Assertions.assertEquals(100,lista.findByIndex(0));
-        Assertions.assertEquals(50,lista.findByIndex(1));
+        Assertions.assertSame(100,lista.findByIndex(0));
+        Assertions.assertSame(50,lista.findByIndex(1));
     }
 
     /**
@@ -82,4 +82,37 @@ public class ListaTest {
        }
        Assertions.assertTrue(exception);
     }
+
+    @Test
+    public void testReverterListaComCinco() throws Throwable {
+        Lista lista = new Lista(5);
+        lista.add(1);
+        lista.add(2);
+        lista.add(3);
+        lista.add(4);
+        lista.add(5);
+        System.out.println(lista.toString());
+        lista.reverse();
+        System.out.println(lista.toString());
+    }
+
+    @Test
+    public void testReverterListaComDez() throws Throwable {
+        Lista lista = new Lista(11);
+        lista.add(1);
+        lista.add(2);
+        lista.add(3);
+        lista.add(4);
+        lista.add(5);
+        lista.add(6);
+        lista.add(7);
+        lista.add(8);
+        lista.add(9);
+        lista.add(10);
+        lista.add(11);
+        System.out.println(lista.toString());
+        lista.reverse();
+        System.out.println(lista.toString());
+    }
+
 }
