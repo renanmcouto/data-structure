@@ -115,4 +115,18 @@ public class ListaTest {
         System.out.println(lista.toString());
     }
 
+    @Test
+    public void testRemover() throws Throwable {
+        Lista lista = new Lista(5);
+        lista.add(1);
+        lista.add(2);
+        lista.add(3);
+        lista.add(4);
+        lista.add(5);
+        lista.remove(3);
+        System.out.println(lista.toString());
+        lista.remove(1);
+        System.out.println(lista.toString());
+    }
+
 }
